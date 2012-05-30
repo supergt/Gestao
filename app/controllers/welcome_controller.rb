@@ -20,10 +20,20 @@ class WelcomeController < ApplicationController
   end
 
   def exames
+    num_per_page = 10
+
+    if params[:search] != nil
+      @exames = Exame.where('nome LIKE ?', "%"+params[:search]+"%").paginate(:per_page => num_per_page, :page => params[:exames_page])
+    else
+      @exames = Exame.paginate(:per_page => num_per_page, :page => params[:exames_page])
+    end
+  end
+
+  def examesProntos
 
   	num_per_page = 10
 		
-		@exames = Exame.paginate(:per_page => num_per_page, :page => params[:exames_page])
+		@exames = Exame.where(:status => 'ok').paginate(:per_page => num_per_page, :page => params[:exames_page])
 
   end
 

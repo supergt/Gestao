@@ -1,0 +1,7 @@
+<%= form_tag welcome_exames_path, :method => 'get' do %>
+  <p>
+  	Busca:
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar", :name => nil %>
+  </p>
+<% end %>
