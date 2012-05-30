@@ -42,33 +42,30 @@
 
 	<div id="linkList">
 
-                <div id="linkList2">
+      <div id="linkList2">
 
-                        <div id="lselect">
-
-                                <h3 class="select"><span>Select a Design:</span></h3>
-
-                                <ul>
-                                        <!-- o original era do tipo: <li><a href="?cssfile=/210/210.css&amp;page=0" title="AccessKey: d" accesskey="d">Oceanscape</a> by <a href="http://www.pixel-house.com.au/" class="c">Justin Gray</a></li> -->
-										<li><%= link_to "Busca por Cidadao", prontuarios_path %></li>
-
-										<li><%= link_to "Busca por Exame", exames_path %></li>
-
-                                        <li><%= link_to "Novos Pacientes", prontuarios_path %></li>
-
-                                        <li><%= link_to "Meus Pacientes", prontuarios_path %></li>
-
-                                        <li><%= link_to "Exames prontos", exames_path %></li>
-
-                                </ul>
-
-                        </div>
-						
+      <div id="lselect">
 
 
-                </div>
-						<div id="coluna">
-						</div>
+	      <ul>
+	        <li><%= link_to "Busca por Cidadao", welcome_index_path %></li>
+
+					<li><%= link_to "Busca por Exame", welcome_exames_path %></li>
+
+	        <li><%= link_to "Novos Pacientes", prontuarios_path %></li>
+
+	        <li><%= link_to "Meus Pacientes", prontuarios_path %></li>
+
+	        <li><%= link_to "Exames prontos", exames_path %></li>
+				</ul>
+
+	    </div>
+			
+
+
+	    </div>
+	<div id="coluna">
+	</div>
 	</div>
 
 

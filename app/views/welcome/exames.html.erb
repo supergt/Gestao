@@ -1,0 +1,38 @@
+<h1>Gestão de Atendimento</h1>
+
+<table>
+  <tr class="tabRow" style="width:100%">
+    <th class="tabNome" style="width:20%">Nome</th>
+    <th class="tabDataNasc" style="width:7%">Data Nascimento</th>
+    <th class="tabLocal" style="width:5%">Exame Nome</th>
+    <th class="tabCad" style="width:7%">Exame Status</th>
+    <th class="tabHab" style="width:5%">Exame Resultado</th>
+    <th class="tabTel" style="width:10%">Telefone Residencial</th>
+    <th class="tabCel" style="width:10%">Telefone Celular</th>
+    <th class="tabEmail" style="width:20%">E-mail</th>
+    <th class="tabGen" style="width:9%">Genero</th>
+  </tr>
+
+<% if @exames.length > 0 %>
+
+	<% @exames.each do |exame| %>
+	  	<tr>
+		    <td><%= link_to exame.prontuario.nome, exame.prontuario %></td>
+		    <td><%= exame.prontuario.dataNascimento.strftime("%d/%m/%Y") %></td>
+		    <td><%= exame.nome %></td>
+		    <td><%= exame.status %></td>
+		    <td><%= exame.resultado %></td>
+		    <td><%= exame.prontuario.telefoneResidencial %></td>
+		    <td><%= exame.prontuario.celular %></td>
+		    <td><%= exame.prontuario.email %></td>
+		    <td><%= exame.prontuario.genero.nome %></td>
+		</tr>
+	<% end %>
+</table>
+<% else %>
+</table>
+<br />
+<center>Lista de resultados vazia. Por favor, faça uma nova busca.</center>
+<% end %>
+
+<%= will_paginate @exames, :param_name => 'exames_page' %>

@@ -19,5 +19,13 @@ class WelcomeController < ApplicationController
   	end
   end
 
+  def exames
+
+  	num_per_page = 10
+		
+		@exames = Exame.paginate(:per_page => num_per_page, :page => params[:exames_page])
+
+  end
+
 
 end

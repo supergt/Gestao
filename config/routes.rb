@@ -20,6 +20,8 @@ Gestao::Application.routes.draw do
 
   get "welcome/index"
 
+  get "welcome/exames"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
