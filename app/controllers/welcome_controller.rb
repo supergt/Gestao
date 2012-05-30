@@ -2,10 +2,20 @@ class WelcomeController < ApplicationController
   
 
   def index
+
+  	num_per_page = 10
+
   	if params[:search] != nil
-  		@prontuarios = Prontuario.where('nome LIKE ?', "%"+params[:search]+"%")
+
+  		@categoria = Categoria.find(params[:categoria].values).first
+
+  		if @categoria.nome == 'Nome'
+  			@prontuarios = Prontuario.where('nome LIKE ?', "%"+params[:search]+"%").paginate(:per_page => num_per_page, :page => params[:prontuarios_page])
+  		elsif @categoria.nome == 'Gênero'
+  			@prontuarios = Prontuario.where('generos.nome LIKE ?', "%"+params[:search]+"%").joins(:genero).paginate(:per_page => num_per_page, :page => params[:prontuarios_page])
+  		end
   	else
-  		@prontuarios = Prontuario.all
+  		@prontuarios = Prontuario.paginate(:per_page => num_per_page, :page => params[:prontuarios_page])
   	end
   end
 

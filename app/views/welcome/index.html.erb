@@ -1,34 +1,41 @@
 <h1>Gestão de Atendimento</h1>
 
 <div class="search">
-	Search <br />
 	<%= render :partial => 'search' %>
 </div>
 
 <table>
-  <tr>
-    <th>Nome</th>
-    <th>Data Nascimento</th>
-    <th>Localizacao Geo</th>
-    <th>Cadastro Saude</th>
-    <th>Habito Vida</th>
-    <th>Telefone Residencial</th>
-    <th>Telefone Celular</th>
-    <th>E-mail</th>
-    <th>Genero</th>
+  <tr class="tabRow" style="width:100%">
+    <th class="tabNome" style="width:20%">Nome</th>
+    <th class="tabDataNasc" style="width:7%">Data Nascimento</th>
+    <th class="tabLocal" style="width:5%">Localizacao Geo</th>
+    <th class="tabCad" style="width:7%">Cadastro Saude</th>
+    <th class="tabHab" style="width:5%">Habito Vida</th>
+    <th class="tabTel" style="width:10%">Telefone Residencial</th>
+    <th class="tabCel" style="width:10%">Telefone Celular</th>
+    <th class="tabEmail" style="width:20%">E-mail</th>
+    <th class="tabGen" style="width:9%">Genero</th>
   </tr>
 
-<% @prontuarios.each do |prontuario| %>
-  	<tr>
-	    <td><%= link_to prontuario.nome, prontuario %></td>
-	    <td><%= prontuario.dataNascimento %></td>
-	    <td><%= prontuario.localizacaoGeo %></td>
-	    <td><%= prontuario.cadastroSaude %></td>
-	    <td><%= prontuario.habitoVida %></td>
-	    <td><%= prontuario.telefoneResidencial %></td>
-	    <td><%= prontuario.celular %></td>
-	    <td><%= prontuario.email %></td>
-	    <td><%= prontuario.genero.nome %></td>
-	</tr>
-<% end %>
+<% if @prontuarios.length > 0 %>
+
+	<% @prontuarios.each do |prontuario| %>
+	  	<tr>
+		    <td><%= link_to prontuario.nome, prontuario %></td>
+		    <td><%= prontuario.dataNascimento.strftime("%d/%m/%Y") %></td>
+		    <td><%= prontuario.localizacaoGeo %></td>
+		    <td><%= prontuario.cadastroSaude %></td>
+		    <td><%= prontuario.habitoVida %></td>
+		    <td><%= prontuario.telefoneResidencial %></td>
+		    <td><%= prontuario.celular %></td>
+		    <td><%= prontuario.email %></td>
+		    <td><%= prontuario.genero.nome %></td>
+		</tr>
+	<% end %>
 </table>
+<% else %>
+</table>
+			<center>Lista de resultados vazia. Por favor, faça uma nova busca.</center>
+<% end %>
+
+<%= will_paginate @prontuarios, :param_name => 'prontuarios_page' %>
