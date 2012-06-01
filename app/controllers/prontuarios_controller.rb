@@ -1,4 +1,6 @@
 class ProntuariosController < ApplicationController
+	
+	
   # GET /prontuarios
   # GET /prontuarios.json
   def index

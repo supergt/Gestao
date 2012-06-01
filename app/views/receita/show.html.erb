@@ -1,8 +1,10 @@
-<p id="notice"><%= notice %></p>
+﻿<p id="notice"><%= notice %></p>
 
+  <h1>Receita</h1>
+  
 <p>
   <b>Data:</b>
-  <%= @receitum.data %>
+  <%= @receitum.data.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
@@ -16,30 +18,29 @@
 </p>
 
 <p>
-  <b>Frequencia:</b>
+  <b>Frequência:</b>
   <%= @receitum.frequencia %>
 </p>
 
 <p>
-  <b>Duracao:</b>
+  <b>Duração:</b>
   <%= @receitum.duracao %>
 </p>
 
 <p>
-  <b>Observacao:</b>
+  <b>Observação:</b>
   <%= @receitum.observacao %>
 </p>
 
 <p>
-  <b>Medico:</b>
-  <%= @receitum.medico_id %>
+  <b>Médico:</b>
+  <%= @receitum.medico.nome %>
 </p>
 
 <p>
-  <b>Prontuario:</b>
-  <%= @receitum.prontuario_id %>
+  <b>Prontuário:</b>
+  <%= @receitum.prontuario.nome %>
 </p>
 
 
-<%= link_to 'Edit', edit_receitum_path(@receitum) %> |
-<%= link_to 'Back', receita_path %>
+<%= link_to 'Voltar', @receitum.prontuario %>

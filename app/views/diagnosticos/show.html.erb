@@ -1,25 +1,25 @@
-<p id="notice"><%= notice %></p>
+﻿<p id="notice"><%= notice %></p>
 
+  <h1>Diagnóstico</h1>
 <p>
-  <b>Descricao:</b>
+  <b>Descrição:</b>
   <%= @diagnostico.descricao %>
 </p>
 
 <p>
   <b>Data:</b>
-  <%= @diagnostico.data %>
+  <%= @diagnostico.data.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
-  <b>Medico:</b>
+  <b>Médico:</b>
   <%= @diagnostico.medico_id %>
 </p>
 
 <p>
   <b>Prontuario:</b>
-  <%= @diagnostico.prontuario_id %>
+  <%= @diagnostico.prontuario.nome %>
 </p>
 
 
-<%= link_to 'Edit', edit_diagnostico_path(@diagnostico) %> |
-<%= link_to 'Back', diagnosticos_path %>
+<%= link_to 'Voltar', @exame.prontuario %>

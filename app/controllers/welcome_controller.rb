@@ -1,4 +1,4 @@
-class WelcomeController < ApplicationController
+﻿class WelcomeController < ApplicationController
   
 
   def index
@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
 
   		if @categoria.nome == 'Nome'
   			@prontuarios = Prontuario.where('nome LIKE ?', "%"+params[:search]+"%").paginate(:per_page => num_per_page, :page => params[:prontuarios_page])
-  		elsif @categoria.nome == 'Gênero'
+  		elsif @categoria.nome == 'Gênero' then
   			@prontuarios = Prontuario.where('generos.nome LIKE ?', "%"+params[:search]+"%").joins(:genero).paginate(:per_page => num_per_page, :page => params[:prontuarios_page])
   		end
   	else
