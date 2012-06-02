@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20120523132757) do
 
-  create_table "buscas", :force => true do |t|
-    t.integer  "categoria_id"
-    t.string   "campo"
-    t.integer  "ordem_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "categoria", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at", :null => false
@@ -88,7 +80,7 @@ ActiveRecord::Schema.define(:version => 20120523132757) do
     t.string   "nome"
     t.string   "restricao"
     t.string   "recomendacao"
-    t.boolean  "deveAnalizar"
+    t.string   "deveAnalizar"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
