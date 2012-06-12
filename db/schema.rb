@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120523132757) do
+ActiveRecord::Schema.define(:version => 20120612200503) do
 
   create_table "categoria", :force => true do |t|
     t.string   "nome"
@@ -51,21 +51,31 @@ ActiveRecord::Schema.define(:version => 20120523132757) do
   end
 
   create_table "medicos", :force => true do |t|
-    t.string   "login"
-    t.string   "senha"
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.string   "nome"
     t.date     "dataNascimento"
     t.integer  "rg"
-    t.integer  "localizacaoGeo"
+    t.string   "localizacaoGeo"
     t.integer  "cpf"
     t.integer  "crm"
     t.integer  "telefoneResidencial"
     t.integer  "celular"
     t.integer  "especialidade_id"
-    t.boolean  "admin"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
+
+  add_index "medicos", ["email"], :name => "index_medicos_on_email", :unique => true
+  add_index "medicos", ["reset_password_token"], :name => "index_medicos_on_reset_password_token", :unique => true
 
   create_table "ordems", :force => true do |t|
     t.string   "nome"

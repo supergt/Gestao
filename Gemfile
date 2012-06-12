@@ -23,6 +23,8 @@ end
 
 gem 'will_paginate'
 
+gem 'devise'
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password

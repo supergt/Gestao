@@ -8,7 +8,9 @@
 
 	<script type="text/javascript"></script>
 
-	<%= stylesheet_link_tag "teste" %>
+	<%= stylesheet_link_tag "teste", 'jquery-ui-light' %>
+
+	<%= javascript_include_tag 'application', 'jquery-ui' %>
 	
 
 </head>
@@ -28,13 +30,14 @@
 
 				<div id="footer">
 
-			<%= link_to "Página Inicial", welcome_inicio_path %> &nbsp; 
-
-			<a href="login.html" title="">Sair</a>
 		</div>
 
 		<!-- Aqui vai colocar as outras views-->
 		<div id="resultado">
+
+		<p class="notice"><%= notice %></p>
+   	<p class="alert"><%= alert %></p>
+
 		<%= yield %>
 		</div>
 		

@@ -1,6 +1,6 @@
 Gestao::Application.routes.draw do
 
-  resources :medicos
+  devise_for :medicos
 
   resources :prontuarios
 
