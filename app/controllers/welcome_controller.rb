@@ -8,9 +8,9 @@ class WelcomeController < ApplicationController
 
       @categoria = Categoria.find(params[:categoria].values).first
 
-      if @categoria.nome == 'Nome'
+      if @categoria.id == 1
         @prontuarios = Prontuario.where('nome LIKE ?', "%"+params[:search]+"%").paginate(:per_page => num_per_page, :page => params[:prontuarios_page])
-      elsif @categoria.nome == 'Gênero' then
+      elsif @categoria.id == 4 then
         @prontuarios = Prontuario.where('generos.nome LIKE ?', "%"+params[:search]+"%").joins(:genero).paginate(:per_page => num_per_page, :page => params[:prontuarios_page])
       end
     else
