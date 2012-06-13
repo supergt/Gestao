@@ -24,6 +24,7 @@ class ReceitaController < ApplicationController
   # GET /receita/new
   # GET /receita/new.json
   def new
+    @prontuario = Prontuario.find(params[:prontuario])
     @receitum = Receitum.new
 
     respond_to do |format|
@@ -39,12 +40,14 @@ class ReceitaController < ApplicationController
 
   # POST /receita
   # POST /receita.json
-  def create
-    @receitum = Receitum.new(params[:receitum])
+def create
+    @prontuario = Prontuario.find(params[:prontuario].values).first
+    @receitum = @prontuario.receita.build(params[:receitum])
+    @receitum.medico = current_medico
 
     respond_to do |format|
       if @receitum.save
-        format.html { redirect_to @receitum, :notice => 'Receitum was successfully created.' }
+        format.html { redirect_to @prontuario}
         format.json { render :json => @receitum, :status => :created, :location => @receitum }
       else
         format.html { render :action => "new" }

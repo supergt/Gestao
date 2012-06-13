@@ -13,10 +13,12 @@
 
 <p>
   <b>Médico:</b>
-  <%= @diagnostico.medico_id %>
+  <%= @diagnostico.medico.nome %>
 </p>
 
 <p>
   <b>Prontuario:</b>
   <%= @diagnostico.prontuario.nome %>
 </p>
+
+<%= link_to 'Voltar', @diagnostico.prontuario %>

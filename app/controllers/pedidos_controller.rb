@@ -24,6 +24,7 @@ class PedidosController < ApplicationController
   # GET /pedidos/new
   # GET /pedidos/new.json
   def new
+    @prontuario = Prontuario.find(params[:prontuario])
     @pedido = Pedido.new
 
 	@pedido.prontuario_id = params[:prontid]
@@ -42,11 +43,13 @@ class PedidosController < ApplicationController
   # POST /pedidos
   # POST /pedidos.json
   def create
-    @pedido = Pedido.new(params[:pedido])
+    @prontuario = Prontuario.find(params[:prontuario].values).first
+    @pedido = @prontuario.pedidos.build(params[:pedido])
+    @pedido.medico = current_medico
 
     respond_to do |format|
       if @pedido.save
-        format.html { redirect_to @pedido, :notice => 'Pedido was successfully created.' }
+        format.html { redirect_to @prontuario}
         format.json { render :json => @pedido, :status => :created, :location => @pedido }
       else
         format.html { render :action => "new" }
@@ -54,7 +57,7 @@ class PedidosController < ApplicationController
       end
     end
   end
-
+  
   # PUT /pedidos/1
   # PUT /pedidos/1.json
   def update

@@ -1,4 +1,4 @@
-class WelcomeController < ApplicationController  
+﻿class WelcomeController < ApplicationController  
 
   def index
 
@@ -19,6 +19,11 @@ class WelcomeController < ApplicationController
   end
 
   def inicio
+	if current_medico != nil
+		@texto = "Bem Vindo, " + current_medico.nome
+	else
+		@texto = "Por favor, faça login"
+	end
   end
 
   def exames

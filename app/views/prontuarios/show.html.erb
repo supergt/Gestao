@@ -57,7 +57,7 @@
 
 
 <h2>Exames</h2>
- <%= link_to 'Pedir Exame', new_pedido_path,  :remote => true %>
+ <%= link_to 'Pedir Exame', new_pedido_path(:prontuario => @prontuario),  :remote => true %>
  <br></br>
 <table>
 	<td style="width:30%"><b>Nome</b></td><td style="width:30%"><b>Data de Realização</b></td>
@@ -83,7 +83,7 @@
 <br></br>
 
 <h2>Diagnósticos</h2>
- <%= link_to 'Escrever diagnóstico', new_diagnostico_path,  :remote => true %>
+ <%= link_to 'Escrever diagnóstico', new_diagnostico_path(:prontuario => @prontuario),  :remote => true %>
  <br></br>
 <table>
 	<td style="width:30%"><b>Nome</b></td><td style="width:30%"><b>Data de Realização</b></td>
@@ -98,7 +98,7 @@
 <br></br>
 
 <h2>Receitas</h2>
- <%= link_to 'Receitar Medicamento', new_receitum_path,  :remote => true %>
+ <%= link_to 'Receitar Medicamento', new_receitum_path(:prontuario => @prontuario),  :remote => true %>
  <br></br>
  <table>
 	<td style="width:30%"><b>Nome</b></td><td style="width:30%"><b>Data de Realização</b></td>

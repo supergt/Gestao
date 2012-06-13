@@ -32,15 +32,12 @@
     <%= f.text_area :observacao %>
   </div>
   
-  <div class="field">
-    <%= f.label :"Médico" %><br />
-    <%= collection_select :receitum, :medico_id, Medico.all, :id, :nome  %>
+
+		<div class="hidden_field">
+		<%= hidden_field :prontuario, :id %>
+
   </div>
 
-  <div class="field">
-    <%= f.label :paciente %><br />
-    <%= collection_select :receitum, :prontuario_id, Prontuario.all, :id, :nome  %>
-  </div>
 
   <div class="field">
     <%= f.label :data %><br />

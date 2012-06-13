@@ -2,17 +2,17 @@
 
 <p>
   <b>Data:</b>
-  <%= @pedido.data %>
+  <%= @pedido.data.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
   <b>Medico:</b>
-  <%= @pedido.medico_id %>
+  <%= @pedido.medico.nome %>
 </p>
 
 <p>
   <b>Prontuario:</b>
-  <%= @pedido.prontuario_id %>
+  <%= @pedido.prontuario.nome %>
 </p>
 
 <p>
@@ -36,5 +36,4 @@
 </p>
 
 
-<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
-<%= link_to 'Back', pedidos_path %>
+<%= link_to 'Voltar', @pedido.prontuario %>

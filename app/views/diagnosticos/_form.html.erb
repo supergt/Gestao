@@ -20,15 +20,8 @@
     <%= f.date_select :data %>
   </div>
 
-  <div class="field">
-    <%= f.label :"Médico" %><br />
-    <%= collection_select :diagnostico, :medico_id, Medico.all, :id, :nome  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :paciente %><br />
-    <%= collection_select :diagnostico, :prontuario_id, Prontuario.all, :id, :nome  %>
-  </div>
+	<div class="hidden_field">
+	<%= hidden_field :prontuario, :id %>
 
   <div class="actions">
     <%= f.submit value:"Salvar Diagnóstico"%>

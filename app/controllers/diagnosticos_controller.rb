@@ -24,6 +24,7 @@ class DiagnosticosController < ApplicationController
   # GET /diagnosticos/new
   # GET /diagnosticos/new.json
   def new
+    @prontuario = Prontuario.find(params[:prontuario])
     @diagnostico = Diagnostico.new
 
     respond_to do |format|
@@ -40,11 +41,13 @@ class DiagnosticosController < ApplicationController
   # POST /diagnosticos
   # POST /diagnosticos.json
   def create
-    @diagnostico = Diagnostico.new(params[:diagnostico])
+    @prontuario = Prontuario.find(params[:prontuario].values).first
+    @diagnostico = @prontuario.diagnosticos.build(params[:diagnostico])
+    @diagnostico.medico = current_medico
 
     respond_to do |format|
       if @diagnostico.save
-        format.html { redirect_to @diagnostico, :notice => 'Diagnostico was successfully created.' }
+        format.html { redirect_to @prontuario}
         format.json { render :json => @diagnostico, :status => :created, :location => @diagnostico }
       else
         format.html { render :action => "new" }
@@ -52,7 +55,7 @@ class DiagnosticosController < ApplicationController
       end
     end
   end
-
+  
   # PUT /diagnosticos/1
   # PUT /diagnosticos/1.json
   def update
