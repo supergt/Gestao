@@ -26,6 +26,8 @@ class PedidosController < ApplicationController
   def new
     @pedido = Pedido.new
 
+	@pedido.prontuario_id = params[:prontid]
+	
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @pedido }
