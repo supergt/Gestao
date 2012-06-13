@@ -16,20 +16,20 @@
     <%= f.text_field :nome %>
   </div>
   <div class="field">
-    <%= f.label :restricao %><br />
+    <%= f.label :"Restrição" %><br />
     <%= f.text_area :restricao %>
   </div>
   <div class="field">
-    <%= f.label :recomendacao %><br />
+    <%= f.label :"Recomendação" %><br />
     <%= f.text_area :recomendacao %>
   </div>
   <div class="field">
-    <%= f.label :deveAnalizar %><br />
+    <%= f.label :"Deve analisar" %><br />
     <%= f.check_box :deveAnalizar %>
   </div>
 
   <div class="field">
-    <%= f.label :medico %><br />
+    <%= f.label :"Médico" %><br />
     <%= collection_select :pedido, :medico_id, Medico.all, :id, :nome  %>
   </div>
   
@@ -44,6 +44,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit value:"Fazer Pedido"%>
   </div>
 <% end %>

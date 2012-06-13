@@ -1,4 +1,12 @@
-﻿<p id="notice"><%= notice %></p>
+﻿<!-- modal!!!! -->
+<div id="modal-container"></div>
+<div id="modal">
+  <a href="#" class="close">Fechar</a>
+</div>
+
+<!-- Fim do Modal -->
+
+<p id="notice"><%= notice %></p>
 
 <div id="Prontuario">
 <p>
@@ -49,7 +57,7 @@
 
 
 <h2>Exames</h2>
- <%= link_to 'Pedir Exame', new_pedido_path %>
+ <%= link_to 'Pedir Exame', new_pedido_path,  :remote => true %>
  <br></br>
 <table>
 	<td style="width:30%"><b>Nome</b></td><td style="width:30%"><b>Data de Realização</b></td>
@@ -75,7 +83,7 @@
 <br></br>
 
 <h2>Diagnosticos</h2>
- <%= link_to 'Escrever diagnóstico', new_diagnostico_path %>
+ <%= link_to 'Escrever diagnóstico', new_diagnostico_path,  :remote => true %>
  <br></br>
 <table>
 	<td style="width:30%"><b>Nome</b></td><td style="width:30%"><b>Data de Realização</b></td>
@@ -90,7 +98,7 @@
 <br></br>
 
 <h2>Receitas</h2>
- <%= link_to 'Receitar Medicamento', new_receitum_path %>
+ <%= link_to 'Receitar Medicamento', new_receitum_path,  :remote => true %>
  <br></br>
  <table>
 	<td style="width:30%"><b>Nome</b></td><td style="width:30%"><b>Data de Realização</b></td>
